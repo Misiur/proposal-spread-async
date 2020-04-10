@@ -56,8 +56,8 @@ async function *gen() {
   yield Promise.resolve(3);
 }
 
-const values = [...await gen()];
-const somevalues = [...await some(2) gen()];
+const values = [await ...gen()];
+const somevalues = [await some(2) ...gen()];
 console.log(values, somevalues);
 // [ 1, 2, 3 ] [ 1, 2 ]
 ```
